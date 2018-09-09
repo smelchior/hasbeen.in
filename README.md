@@ -35,6 +35,31 @@ $ puma
 You can reach your local hasbeen.in instance at:
 [www.dev.hasbeen.in:3000](http://www.dev.hasbeen.in:3000).
 
+### Testing locally with docker
+Requirements: Docker + docker-compose installed
+
+First create the env file and add your google maps api key for the internal geolocation requests:
+```bash
+mv .env.dist .env
+```
+The google maps api limits quite fast nowadays.
+
+Edit your local hostfile to include:
+```
+127.0.0.1 www.dev.hasbeen.in <<traveller>>.dev.hasbeen.in
+```
+
+Run:
+```
+docker-compose up
+```
+
+You can reach your local hasbeen.in instance at:
+[www.dev.hasbeen.in:3000](http://www.dev.hasbeen.in:3000).
+
+***Note:*** The container only mounts the travellers config directory, so it can only be used to test traveller profile changes. If you want to change application logic, you will need to modify the docker setup.
+
+
 ### Traveller Profiles
 
 (*) You'll find the profiles in `config/travellers`. The
